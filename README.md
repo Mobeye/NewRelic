@@ -67,4 +67,4 @@ Poke the admin url of Django twice per second:
 
 `watch -n 0.5 curl http://127.0.0.1:3031/admin/`
 
-You should see and error poping in the uWSGI terminal. If now, stop re-rerun uwsgi until it shows up.
+You should see and error poping in the uWSGI terminal. If not, stop re-rerun uwsgi until it shows up.
