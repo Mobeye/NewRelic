@@ -13,4 +13,4 @@ cd Mobeye_NewRelic
 export NEW_RELIC_CONFIG_FILE=`pwd`/newrelic.ini
 export NEW_RELIC_STARTUP_DEBUG=True
 
-newrelic-admin run-program ../venv/bin/uwsgi --ini uwsgi.ini
+newrelic-admin run-program ../venv/bin/celery worker -A test_celery --loglevel=INFO --time-limit=7200 --concurrency=4 -Q default

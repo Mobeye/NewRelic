@@ -119,3 +119,24 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
+
+CELERY_BROKER_URL = "amqp://192.168.99.100:5672/"
+CELERY_WORKER_POOL_RESTARTS = True
+
+from celery.schedules import crontab
+
+#CELERY_BEAT_SCHEDULE = {
+#    'updating_reporting': {
+#        'task': 'update_reporting',
+#        'schedule': crontab(minute='*/50')
+#    },
+#}
+
+CELERY_TASK_DEFAULT_QUEUE = "default"
+CELERY_TASK_QUEUES = {
+    "default": {
+        "exchange": "default",
+        "exchange_type": "direct",
+        "binding_key": "default",
+    },
+}
